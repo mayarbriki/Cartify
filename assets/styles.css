@@ -1,50 +1,133 @@
-body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+/* Reset some basic styles */
+html, body {
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa;
-    color: #333;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
 }
 
+/* Wrapper for the entire content */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Ensure the image covers the entire viewport */
+.background-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Ensure the image covers the entire height of the viewport */
+    object-fit: cover; /* Ensure the image covers the area without stretching */
+    z-index: -1; /* Place behind other content */
+    opacity: 0.8; /* Adjust opacity if needed */
+}
+
+/* Styling for transparent header */
 header {
-    background-color: #343a40;
-    color: #fff;
-    padding: 10px 20px;
+    background-color: transparent;
+    padding: 1rem;
     text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+header.scrolled {
+    background-color: black;
 }
 
 header h1 {
     margin: 0;
-    font-size: 2em;
+    font-weight: 700;
+    transition: color 0.3s ease;
 }
 
+header h1.transparent {
+    color: black;
+}
+
+header h1.scrolled {
+    color: white;
+}
+
+.auth-buttons {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+}
+
+.auth-buttons .btn {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid black;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+header.scrolled .auth-buttons .btn {
+    border-color: white;
+    color: white;
+}
+
+/* Main content container */
 .container {
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    margin-top: 100px;
+    flex: 1; /* Allow container to grow and fill space */
+    padding: 1rem;
 }
 
-.container h1 {
-    font-size: 2.5em;
-    color: #007bff;
-    margin-bottom: 0.5em;
-}
-
-.container p {
-    font-size: 1.2em;
-    color: #666;
-}
-
+/* Black footer styling */
 footer {
-    background-color: #343a40;
-    color: #fff;
+    background-color: black;
+    color: white;
     text-align: center;
-    padding: 20px;
-    position: fixed;
+    padding: 1rem 0;
+    position: relative;
     width: 100%;
-    bottom: 0;
+    margin-top: auto; /* Push footer to bottom */
+}
+/* Existing styles... */
+
+/* Hide form container initially */
+.form-container {
+    display: none; /* Hide initially */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+/* Make the form container visible */
+.form-container.active {
+    display: block;
+}
+
+/* Styling for form elements */
+.form-container input {
+    display: block;
+    margin-bottom: 1rem;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-container button {
+    margin-top: 1rem;
 }
