@@ -1,4 +1,42 @@
-/* Reset some basic styles */
+.user-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    color: black;
+}
+
+.user-table th, .user-table td {
+    padding: 12px;
+    text-align: left;
+    border: none; /* Remove borders */
+}
+
+.user-table th {
+    font-weight: bold;
+    background-color: rgb(179, 178, 178); /* Set the header background to white */
+}
+
+.user-table tbody tr {
+    border-bottom: 1px solid #ddd; /* Add a subtle line between rows for better readability */
+}
+.btn-delete {
+    color: white;
+    background-color: rgb(146, 7, 7);
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.btn-delete:hover {
+    background-color: darkred;
+}
+
+
+.user-table tbody tr:last-child {
+    border-bottom: none; /* Remove the bottom border for the last row */
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -151,4 +189,47 @@ header {
 h1 {
     margin-bottom: 20px; /* Space between heading and form */
     font-size: 2rem; /* Adjust as needed */
+}
+nav {
+    width: 200px; /* Adjust the width as needed */
+    background-color: #f4f4f4; /* Background color for the nav bar */
+    padding: 10px;
+    height: 100vh; /* Full viewport height */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+/* Navigation container styles */
+nav {
+    width: 250px; /* Adjust the width as needed */
+    background-color: #333; /* Dark background color for better contrast */
+    padding: 20px; /* Padding for spacing */
+    height: 100vh; /* Full viewport height */
+    position: fixed; /* Fix the nav to the left side */
+    top: 0;
+    left: 0;
+    color: #fff; /* White text color */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+/* Navigation list styles */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-bottom: 20px; /* Increased spacing for better separation */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff; /* White text color */
+    display: block;
+    padding: 15px; /* Larger padding for better clickability */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #575757; /* Darker hover effect */
 }

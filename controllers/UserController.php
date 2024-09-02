@@ -128,6 +128,21 @@ class UserController {
             return false;
         }
     }
+    public function getAllUsers() {
+        $query = $this->db->prepare("SELECT id, username, email, full_name, role FROM users");
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function deleteUser($userId) {
+        // Prepare and execute the delete query
+        $query = $this->db->prepare("DELETE FROM users WHERE id = :id");
+        $query->bindParam(':id', $userId, PDO::PARAM_INT);
+        if ($query->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 ?>
