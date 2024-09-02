@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <header id="main-header">
         <h1>Cartify</h1>
+        
     </header>
     
     <div class="container">

@@ -7,14 +7,16 @@ class User {
     private $fullName;
     private $password;
     private $created_at;
+    private $profilePicture; // New property
 
-    public function __construct($id = null, $username = null, $email = null, $fullName = null, $password = null) {
+    public function __construct($id = null, $username = null, $email = null, $fullName = null, $password = null, $profilePicture = null) {
         $this->id = $id;
         $this->username = $username;
         $this->email = $email;
         $this->fullName = $fullName;
         $this->password = $password;
         $this->created_at = date('Y-m-d H:i:s');
+        $this->profilePicture = $profilePicture; // Initialize new property
     }
 
     // Getter and Setter methods
@@ -62,26 +64,34 @@ class User {
         return $this->created_at;
     }
 
+    public function getProfilePicture() { // Getter for profile picture
+        return $this->profilePicture;
+    }
+
+    public function setProfilePicture($profilePicture) { // Setter for profile picture
+        $this->profilePicture = $profilePicture;
+    }
+
     // Method to validate the password
     public function verifyPassword($password) {
         return password_verify($password, $this->password);
     }
 
-    // Save user data to the database (for example purposes only)
+    // Save user data to the database
     public function save() {
         // Assume $conn is your database connection
         global $conn;
 
         if ($this->id === null) {
             // Insert new user
-            $stmt = $conn->prepare("INSERT INTO users (username, email, full_name, password, created_at) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssss", $this->username, $this->email, $this->fullName, $this->password, $this->created_at);
+            $stmt = $conn->prepare("INSERT INTO users (username, email, full_name, password, created_at, profile_picture) VALUES (?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssssss", $this->username, $this->email, $this->fullName, $this->password, $this->created_at, $this->profilePicture);
             $stmt->execute();
             $this->id = $stmt->insert_id;
         } else {
             // Update existing user
-            $stmt = $conn->prepare("UPDATE users SET username=?, email=?, full_name=?, password=? WHERE id=?");
-            $stmt->bind_param("ssssi", $this->username, $this->email, $this->fullName, $this->password, $this->id);
+            $stmt = $conn->prepare("UPDATE users SET username=?, email=?, full_name=?, password=?, profile_picture=? WHERE id=?");
+            $stmt->bind_param("sssssi", $this->username, $this->email, $this->fullName, $this->password, $this->profilePicture, $this->id);
             $stmt->execute();
         }
     }
@@ -97,7 +107,7 @@ class User {
 
         if ($result->num_rows === 1) {
             $row = $result->fetch_assoc();
-            return new self($row['id'], $row['username'], $row['email'], $row['full_name'], $row['password']);
+            return new self($row['id'], $row['username'], $row['email'], $row['full_name'], $row['password'], $row['profile_picture']);
         } else {
             return null;
         }
