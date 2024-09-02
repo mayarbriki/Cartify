@@ -14,7 +14,7 @@ require_once 'config/init.php';
     <header id="main-header">
         <h1>Cartify</h1>
         <div class="auth-buttons">
-            <a href="../views/login.php" class="btn">Sign In</a>
+            <a href="views/login.php" class="btn">Sign In</a>
             <a href="views/signup.php" class="btn">Sign Up</a>
         </div>
     </header>

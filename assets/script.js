@@ -28,3 +28,21 @@ document.addEventListener('DOMContentLoaded', function() {
         signupForm.classList.remove('active');
     });
 });
+// scripts.js
+// scripts.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navBar = document.querySelector('nav');
+
+    navToggle.addEventListener('click', () => {
+        navBar.classList.toggle('open');
+    });
+
+    // Optional: close the nav when clicking outside of it
+    document.addEventListener('click', (event) => {
+        if (!navBar.contains(event.target) && !navToggle.contains(event.target)) {
+            navBar.classList.remove('open');
+        }
+    });
+});

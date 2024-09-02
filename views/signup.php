@@ -25,6 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <h1>Cartify</h1>
         
     </header>
+    <img src="../assets/Home.png" alt="Background Image" class="background-img">
+
     
     <div class="container">
         <h1>Sign Up</h1>

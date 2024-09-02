@@ -48,11 +48,28 @@ $page = isset($_GET['page']) ? $_GET['page'] : '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Cartify</title>
     <link rel="stylesheet" href="../assets/styles.css">
+    <style>
+        /* Light grey header styling */
+        header {
+            background-color: #f2f2f2; /* Very light grey background */
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+        }
+
+        header h1 {
+            margin: 0;
+            color: #333; /* Dark grey text color */
+        }
+
+       
+    </style>
 </head>
 <body>
-    <header>
+<header>
         <h1>Admin Dashboard</h1>
-        <nav>
+        <button class="nav-toggle">☰</button> <!-- Button to toggle the nav -->
+        <nav class="nav-bar">
             <ul>
                 <li><a href="?page=user_management">User Management</a></li>
                 <li><a href="?page=product_management">Product Management</a></li>
@@ -60,9 +77,9 @@ $page = isset($_GET['page']) ? $_GET['page'] : '';
         </nav>
     </header>
 
-    <div class="container">
+    <div class="admin-dashboard">
         <?php if ($page == 'user_management') : ?>
-            <h2>User Management</h2>
+            <h2>                                   </h2>
             <!-- User management table here -->
             <table>
                 <thead>
@@ -94,7 +111,6 @@ $page = isset($_GET['page']) ? $_GET['page'] : '';
                 </tbody>
             </table>
             <?php elseif ($page == 'product_management') : ?>
-            <h2>Product Management</h2>
             
             <h3>Add New Product</h3>
             <form action="dashboard.php" method="POST" enctype="multipart/form-data">
@@ -134,5 +150,6 @@ $page = isset($_GET['page']) ? $_GET['page'] : '';
             <h2>Welcome to the Admin Dashboard</h2>
         <?php endif; ?>
     </div>
+    <script src="../assets/script.js"></script>
 </body>
 </html>

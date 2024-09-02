@@ -1,5 +1,12 @@
+h3 {
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 50px; /* Adjust the value to move it lower */
+}
+
 .user-table {
     width: 80%;
+    
     border-collapse: collapse;
     margin-top: 20px;
     background-color: white;
@@ -186,28 +193,58 @@ header {
     height: 100vh; /* Full viewport height */
     margin-top: 0; /* Remove default margin */
 }
-h1 {
-    margin-bottom: 20px; /* Space between heading and form */
-    font-size: 2rem; /* Adjust as needed */
-}
+/* Basic styles for the navigation bar */
 nav {
-    width: 200px; /* Adjust the width as needed */
-    background-color: #f4f4f4; /* Background color for the nav bar */
-    padding: 10px;
-    height: 100vh; /* Full viewport height */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
-}
-/* Navigation container styles */
-nav {
-    width: 250px; /* Adjust the width as needed */
-    background-color: #333; /* Dark background color for better contrast */
-    padding: 20px; /* Padding for spacing */
-    height: 100vh; /* Full viewport height */
-    position: fixed; /* Fix the nav to the left side */
+    width: 250px;
+    background-color: #333;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
     top: 0;
-    left: 0;
-    color: #fff; /* White text color */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    left: -250px; /* Hide the nav off-screen by default */
+    color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease; /* Smooth transition for sliding effect */
+}
+
+nav.open {
+    transform: translateX(250px); /* Slide the nav into view */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-bottom: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+}
+
+/* Style for the toggle button */
+.nav-toggle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001; /* Ensure the button is above the nav */
 }
 
 /* Navigation list styles */
@@ -232,4 +269,52 @@ nav ul li a {
 
 nav ul li a:hover {
     background-color: #575757; /* Darker hover effect */
+}
+/* General table styling */
+table {
+    width: 70%; /* Adjust width percentage to make the table smaller */
+    margin: 0 300px auto; /* Center the table horizontally with margin on the right */
+    font-size: 14px; /* Adjust font size to make content smaller */
+}
+
+.admin-dashboard {  
+       font-family: Arial, sans-serif; /* Clean font */ 
+           color: #000000; /* White text color */  
+              background-color: #ffffff; /* Dark blue background for the body */  
+                 margin: 0;    
+                  padding: 0; 
+                     display: flex;  
+                    flex-direction: column;     min-height: 100vh; } 
+h1 {
+    
+    margin-bottom: 20px; /* Space between heading and form */
+    font-size: 2rem; /* Adjust as needed */
+}
+
+table th, table td {
+    padding: 8px; /* Adjust padding to make cells smaller */
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Subtle border for readability */
+}
+table thead {
+    background-color: #f2f2f2; /* Very light grey background */
+}
+
+table th {
+    color: #333; /* Dark grey text color for contrast */
+    padding: 10px; /* Adjust padding if necessary */
+}
+
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alternate row color */
+}
+
+table tr:hover {
+    background-color: #f1f1f1; /* Hover effect */
+}
+
+img {
+    max-width: 100px; /* Limit image width to keep it small */
+    height: auto; /* Maintain aspect ratio */
 }
